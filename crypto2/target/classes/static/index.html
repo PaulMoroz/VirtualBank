@@ -1,0 +1,57 @@
+<html>
+    <head>
+    	<link rel="stylesheet" type="text/css" href="styles.css">
+    	<style type="text/css">
+    		#window{
+    			width: 350px;
+    			height: 230px;
+    			background:#000;
+    			z-index: 2;
+				margin: 180px;
+
+    		}
+    	</style>
+    	<script type="text/javascript">
+    		var mode = 0;
+    		function openclose(arg,command) {
+    			mode = command;
+    			if(arg == "open"){
+    				document.getElementById('window').style.display = "block";
+    				document.getElementById('main').style.display = "none";
+    			}
+    			else{
+    				document.getElementById('window').style.display = "none";
+    				document.getElementById('main').style.display = "block";
+    			}
+    		}
+    		function logregister(){
+    			var log = document.getElementById("login").value;
+    			var pass = document.getElementById('pass').value;
+    			document.getElementById("login").value = "";
+    			document.getElementById('pass').value = "";
+    		}
+
+    	</script>
+      </head>
+    <body style="background-image: url('bg.jpg');" >
+        <div id = "main" align="center" style="padding-top:250px;display: block;">
+        	<p style=" font-size: 20;font-family: monospace;background: black;color: white;"> 
+        		CatCoin. One of the nicest cryptoCurrencies
+        	</p>
+        	<button class="headerBtn" onclick="openclose('open',1)">Log in</button><br>
+        	<button class="headerBtn" onclick="openclose('open',2)">Sign up </button>
+        </div>
+        <center>
+	        <div id="window" align="center" style="display: none;">
+	        	<div class="form">
+	        		<input class = "textInput"type="text" id="login" placeholder="your login">
+	        		<input class = "textInput" type="password" id="pass" placeholder="your password">
+	        		<br>
+	        		<button class = "headerBtn">Action</button><br>
+	        		<button class = "headerBtn" onclick='openclose("close",0)'>Close</button>
+	        	</div>
+	        </div>
+    	</center>
+    </body>
+
+</html>

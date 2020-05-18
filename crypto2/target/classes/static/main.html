@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<style type="text/css">
+    		#window{
+    			width: 350px;
+    			
+    			background:#000;
+    			z-index: 2;
+				margin: 180px;
+
+    		}
+    	</style>
+</head>
+
+<body style="background-image: url('bg.jpg');">
+	<script type="text/javascript">
+		function openSubMenu(thing){
+			document.getElementById('window').style.display = "block";
+			document.getElementById('confirm').hidden = true;
+			document.getElementById('card').hidden = true;
+			document.getElementById('acc').hidden = true;
+			document.getElementById('sum').hidden = true;
+			if(thing=="history")openHistory();
+			else
+			if(thing=="send")openSendMenu();
+			else
+			if(thing=="sendout")openSendOutMenu();
+			
+		}
+		function openHistory() {
+			document.getElementById('confirm').hidden = true;
+			document.getElementById('card').hidden = true;
+			document.getElementById('acc').hidden = true;
+			document.getElementById('sum').hidden = true;
+		}
+		function openSendMenu(){
+			document.getElementById('confirm').hidden = false;
+			document.getElementById('acc').hidden = false;
+			document.getElementById('sum').hidden = false;
+		}
+		function openSendOutMenu(){
+			document.getElementById('confirm').hidden= false;
+			document.getElementById('card').hidden = false;
+			document.getElementById('sum').hidden = false;
+		}
+		function Close(){
+			document.getElementById('window').style.display = "none";
+		}
+	</script>
+	<p style="background-color: black;color: white;font-size: 30px;font-family: monospace;">Number of your acc is </p><button class="headerBtn" style="width: 20%;">Copy number</button>
+	<p id = "coins" style="background-color: black;color: white;font-size: 30px;font-family: monospace;">You have catcoins</p>
+	<div align="center">
+		<button class="headerBtn" style="width: 30%; height: 100px;" onclick="openSubMenu('history')">History</button>
+		<button class="headerBtn" style="width: 30%; height: 100px;" onclick="openSubMenu('sendout')">Send out</button>
+		<button class="headerBtn" style="width: 30%; height: 100px;" onclick="openSubMenu('send')">Send</button>
+	</div>
+
+	<center>
+	        <div id="window" align="center" style="display: none;">
+	        	<div class="form">
+	        		<br>
+	        		<input class = "textInput" type="text" id="card" placeholder="Card number">
+	        		<input class = "textInput" type="text" id="acc"  placeholder="Receiver's acc id">
+	        		<input class = "textInput" type="text" id="sum"  placeholder="Sum">
+	        		<br>
+	        		<button class = "headerBtn" id = "confirm">Action</button><br>
+	        		<button class = "headerBtn" onclick='Close()'>Close</button>
+	        	</div>
+	        </div>
+    </center>
+</body>
+
+</html>
